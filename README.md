@@ -216,9 +216,21 @@ git commit -am "<message>"
 git commit --amend [--no-edit]
 ```
 
+- 提交远程仓库
+
+```shell
+git push <远程主机名> <本地主机名>:<远程分支名>
+```
+
 
 
 ## 4.2 合并更新
+
+- 从远程仓库拉取
+
+```shell
+git pull <远程主机> <远程分支>:<本地分支>
+```
 
 - 从远端拉取最新代码，并合并到分支中
 
@@ -395,6 +407,22 @@ git branch -d <branchname>
 git branch -D <branchname>
 ```
 
+- 删除远程分支
+
+```shell
+# 删除远端的<branchname>分支
+git push origin :<branchname>
+# 等同于
+git push origin --delete develop
+```
+
+- 合并分支的另一种方式
+
+```shell
+# 与git merge不同，git rebase不会生成新的节点
+git rebase <branchname>
+```
+
 
 
 
@@ -481,6 +509,10 @@ git config --global color.ui auto
 git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
 # 推荐如下形式
 git config --global alias.show-graph 'log --graph --oneline --decorate --all'
+# 又是一个棒棒的配置
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+# 查看最后一次提交
+git config --global alias.last "log -1"
 ```
 
 - 查看配置
@@ -583,7 +615,27 @@ git reflog
 git reset <commit id>
 ```
 
+## 7.7 设置忽略文件
 
+Git管理的项目，可以在仓库中添加`.gitignore`文件，配置需要忽略管理的文件或者目录。
+
+
+
+## 7.8 定位问题
+
+### 7.8.1 定位负责人
+
+- 查看文件的每个部分是谁修改的
+
+```shell
+git blame <filename>
+```
+
+
+
+### 7.8.2 定位错误日志
+
+- `git bisect`命令
 
 
 
