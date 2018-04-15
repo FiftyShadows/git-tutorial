@@ -275,8 +275,6 @@ git diff [文件]
 - 加入暂存区后，查看工作树与最新提交的差别
 
 ```shell
-git diff [文件]
-# 或者
 git diff HEAD
 ```
 
