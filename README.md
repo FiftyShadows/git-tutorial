@@ -205,6 +205,55 @@ user.email=liming20110711@163.com
     - 根据实际的安装情况，这个系统设置文件可能在其他位置（也许在`/usr/local/etc/gitconfig`），也可能完全不存在。
 
 
+## 7.3 常规配置
+
+- 设置姓名和邮箱地址
+
+```shell
+git config --global user.name "[username]"
+git config --global user.email "[useremail]"
+```
+
+- 提高命令输出的可读性
+
+```shell
+git config --global color.ui auto
+```
+
+- 设置日志图示以及单行显示
+
+```shell
+git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
+# 推荐如下形式
+git config --global alias.show-graph 'log --graph --oneline --decorate --all'
+```
+
+- 查看配置
+
+```shell
+git config --list
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 八、Git Flow——以发布为中心的开发模式
 
 ## 8.1 git flow的工作流程
