@@ -635,7 +635,40 @@ git blame <filename>
 
 ### 7.8.2 定位错误日志
 
-- `git bisect`命令
+Git提供了二分查找的概念，来帮助确定一个有关Bug的版本。
+
+- 启用二分查找
+
+```shell
+git bisect start
+```
+
+- 标记一个好的版本
+
+```shell
+git bisect good <tag|commit id>
+```
+
+- 标记一个坏的版本
+
+```shell
+# 注意，这里标记Bug版本后，后面会提示还有多少版本需要测试，大概需要多少步骤；并且还会切换到二分位置
+git bisect bad <tag|commit id>
+Bisecting: 7 revisions left to test after this (roughly 3 steps)
+[67ec0234ab82b6821efef2d32b1091f6d560cb08] fix conflict
+```
+
+- 如果对版本标记错了，把good写成了bad或者相反，需要重置
+
+```shell
+git bisect reset <commit id>
+```
+
+- 查看`git bisect`标记操作日志
+
+```shell
+git bisect log
+```
 
 
 
