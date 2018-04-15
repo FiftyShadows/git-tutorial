@@ -1,4 +1,5 @@
 # git-tutorial
+
 git-tutorial
 
 [TOC]
@@ -156,7 +157,7 @@ user.email=liming20110711@163.com
 
    以GitHub为例，创建如图所示：
 
-   ![2](E:\Rushing\Resources\Programming\Git\Learning\Git学习笔记资源\2.png)
+   ![2](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/new-repository-2.png)
 
    获得仓库地址：`git@github.com:Rushing0711/emonnote.git`
 
