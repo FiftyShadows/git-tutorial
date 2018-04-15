@@ -180,7 +180,102 @@ user.email=liming20110711@163.com
 
 # 五、Git分支
 
+- 查看本地分支
+
+```shell
+# 结果中带有星号标识的分支，是当前分支
+git branch
+```
+
+- 查看远程分支
+
+```shell
+git branch -r
+```
+
+- 查看本地和远程所有的分支
+
+```shell
+git branch -a
+```
+
+- 图表形式查看分支
+
+```shell
+git log --graph
+```
+
+- 创建分支
+
+```shell
+git branch feature/x
+```
+
+- 切换分支
+
+```shell
+git checkout feature/x
+```
+
+- 创建并切换分支
+
+```shell
+git checkout -b feature/x
+```
+
+- 切换回上一个分支
+
+```shell
+# 连字符 - 代替分支名，表示上一个分支
+git checkout - 
+```
+
+- 合并分支
+
+```shell
+# 合并分支，并保留日志
+git merge --no-ff feature/x
+```
+
+
+
+
+
 # 六、Git标签
+
+Git管理两种基本的标签类型，通常称为`轻量级（lightweight)`和`带附注的（annotated）`标签。
+
+- 轻量级标签
+
+> 轻量级标签只是一个提交对象的引用，通常被版本库视为私有的。这些标签并不在版本库里创建永久对象。
+
+- 带标注的标签
+
+> 带标注的标签则更加充实，并且会创建一个对象。它包含你提供的一条信息，并且看根据RFC 4880来使用GnuPG秘钥进行数字签名。
+
+Git在命名一个提交的时候，对轻量级的标签和带标注的标签同等对待。不过，默认情况下，很多Git命令只对带标注的标签起作用，因为他们被认为是 **永久** 对象。
+
+
+
+- 创建标签
+
+```shell
+git tag -a v1.0.0 -m "add tag" [branchname]
+```
+
+- 推送到远程仓库
+
+```shell
+git push origin v1.0.0
+```
+
+- 推送所有标签
+
+```shell
+git push origin --tags
+```
+
+
 
 # 七、其他
 
@@ -275,12 +370,13 @@ git diff [文件]
 - 加入暂存区后，查看工作树与最新提交的差别
 
 ```shell
+# 该命令还可以查看工作树与暂存区的差别，包含git diff的结果
 git diff HEAD
 ```
 
 
 
-
+## 7.6 版本回退
 
 
 
