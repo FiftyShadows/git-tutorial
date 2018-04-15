@@ -182,7 +182,45 @@ user.email=liming20110711@163.com
 git checkout <file name>
 ```
 
+而如果不是想放弃当前的修改，只是想暂存起来，去处理一些比较紧急的事情，之后还是需要继续操作，那就需要stash命令：
 
+- 暂存
+
+```shell
+# 保存当前修改，回退到修改之前，此时git diff HEAD查看工作区与暂存区以及最新提交的比较结果无差别
+# 如果不带save -a message，只暂存原有文件之上的修改，不会包含新增文件
+git stash [save [-a] [<message>]]
+```
+
+- 显示已暂存列表
+
+```shell
+git stash list
+stash@{0}: WIP on develop: e218dc5 tutorial update 20180415-10
+```
+
+- 恢复暂存区
+
+```shell
+# 执行后，会从stash list删除
+git stash pop stash@{id}
+# 执行后，不会从stash list删除
+git stash apply stash@{id}
+```
+
+- 删除暂存区
+
+```shell
+# 如果不加stash编号，默认删除最新的编号为0的那个暂存
+git stash drop <stash@{id}>
+```
+
+- 清除暂存区
+
+```shell
+# 清除所有的stash
+git stash clear
+```
 
 
 
@@ -383,16 +421,16 @@ git log -p README.md
 
 ## 7.5 查看文件区别
 
-- 未加入暂存区，查看工作树与暂存区的差别
+- 未加入暂存区，查看工作区与暂存区的差别
 
 ```shell
 git diff [文件]
 ```
 
-- 加入暂存区后，查看工作树与最新提交的差别
+- 加入暂存区后，查看工作区与最新提交的差别
 
 ```shell
-# 该命令还可以查看工作树与暂存区的差别，包含git diff的结果
+# 该命令还可以查看工作区与暂存区的差别，包含git diff的结果
 git diff HEAD
 ```
 
