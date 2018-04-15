@@ -216,22 +216,73 @@ git commit -am "<message>"
 git commit --amend [--no-edit]
 ```
 
-
-
-## 4.2 合并更新
-
-- 从远端拉取最新代码，并合并到分支中
+- 提交远程仓库
 
 ```shell
-# 取回origin主机的master分支，与本地的master分支合并
-git pull origin master:master
+git push <远程主机名> <本地主机名>:<远程分支名>
 ```
 
 
 
+## 4.2 合并更新
+
+- 从远程仓库拉取
+
+```shell
+git pull <远程主机> <远程分支>:<本地分支>
+```
+
+- 从远端拉取最新代码，并合并到分支中
+
+```shell
+# 取回origin主机的next分支，与本地的master分支合并
+git pull origin next:master
+```
+
+- 如果远程分支是与当前分支合并，则冒号后面的部分可以省略
+
+```shell
+git pull origin next
+```
+
+- `pull`的含义是先拉取更新，再与本地分支进行合并，是一个自动的过程，也可以手动实现
+
+```shell
+# 拉取更新
+git fetch origin
+# 合并更新
+git merge origin/next
+```
+
+- 如果本地分支与远程分支建立了一种追踪关系，比如`git clone`时，所有本地分支默认与远程主机的同名分支建立了追踪关系，也就是说，本地的`master`分支自动`追踪`远程分支`origin/master`分支。此时，可以省略远程分支名
+
+```shell
+git pull origin
+```
 
 
 
+## 4.3 查看状态
+
+### 4.3.1 `git status`
+
+- 查看当前分支的状态
+
+```shell
+git status
+```
+
+- 以简单形式，查看当前分支的状态
+
+```shel
+git status -s
+```
+
+- 一个简单的查看忽略文件的方法
+
+```shell
+git status --ignored
+```
 
 
 
@@ -356,6 +407,22 @@ git branch -d <branchname>
 git branch -D <branchname>
 ```
 
+- 删除远程分支
+
+```shell
+# 删除远端的<branchname>分支
+git push origin :<branchname>
+# 等同于
+git push origin --delete develop
+```
+
+- 合并分支的另一种方式
+
+```shell
+# 与git merge不同，git rebase不会生成新的节点
+git rebase <branchname>
+```
+
 
 
 
@@ -442,6 +509,10 @@ git config --global color.ui auto
 git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
 # 推荐如下形式
 git config --global alias.show-graph 'log --graph --oneline --decorate --all'
+# 又是一个棒棒的配置
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+# 查看最后一次提交
+git config --global alias.last "log -1"
 ```
 
 - 查看配置
@@ -544,9 +615,50 @@ git reflog
 git reset <commit id>
 ```
 
+## 7.7 设置忽略文件
+
+Git管理的项目，可以在仓库中添加`.gitignore`文件，配置需要忽略管理的文件或者目录。
 
 
 
+## 7.8 定位问题
+
+### 7.8.1 定位负责人
+
+- 查看文件的每个部分是谁修改的
+
+```shell
+git blame <filename>
+```
+
+
+
+### 7.8.2 定位错误日志
+
+Git提供了二分查找的概念，来帮助确定一个有关Bug的版本。
+
+- 启用二分查找
+
+```shell
+git bisect start
+```
+
+- 标记一个好的版本
+
+```shell
+git bisect good <tag|commit id>
+```
+
+- 标记一个坏的版本
+
+```shell
+# 注意，这里标记Bug版本后，后面会提示还有多少版本需要测试，大概需要多少步骤；并且还会切换到二分位置
+git bisect bad <tag|commit id>
+Bisecting: 7 revisions left to test after this (roughly 3 steps)
+[67ec0234ab82b6821efef2d32b1091f6d560cb08] fix conflict
+```
+
+- ​
 
 # 八、Git Flow——以发布为中心的开发模式
 
