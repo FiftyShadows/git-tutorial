@@ -555,6 +555,24 @@ git log README.md
 git log -p README.md
 ```
 
+- 查看最后一次提交
+
+```shell
+git log -n 1
+```
+
+- 查看最近一次提交所有更改过的文件
+
+```shell
+git log -n 1 --stat
+```
+
+- 查看最近一次提交所有更改的细节
+
+```shell
+git log -n 1 -p
+```
+
 
 
 ## 7.5 查看文件区别
