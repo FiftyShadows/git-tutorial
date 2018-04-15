@@ -214,7 +214,7 @@ user.email=liming20110711@163.com
 
 ​	当在团队开发中使用版本控制系统时，商定一个统一的工作流程是至关重要的。
 
-![git flow 官方工作流程](D:\Resources\Programming\Git\Learning\Git学习笔记资源\git flow 官方图片.png)
+![git-flow.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/git-flow.png)
 
 ### 8.1.1 流程分支解析
 
@@ -228,7 +228,7 @@ user.email=liming20110711@163.com
 
 #### master分支：
 
-![](D:\Resources\Programming\Git\Learning\Git学习笔记资源\git flow master 分支.png)
+![git-flow-master.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/git-flow-master.png)
 
 - Git主分支的名字，默认叫做`master`。该分支是自动建立，版本库初始化后，默认就是在主分支。
 
@@ -251,7 +251,7 @@ git push -u origin develop
 
 #### feature分支：
 
-![](D:\Resources\Programming\Git\Learning\Git学习笔记资源\git flow feature 分支.png)
+![git-flow-feature.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/git-flow-feature.png)
 
 - `feature`分支基于`develop`分支创建。
 - `feature`分支完成后，必须合并到`develop`分支，合并后一般会删除`feature`分支，但也可以保留。
@@ -283,7 +283,7 @@ git push origin --delete feature/x
 
 #### release分支：
 
-![](D:\Resources\Programming\Git\Learning\Git学习笔记资源\git flow release 分支.png)
+![git-flow-release.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/git-flow-release.png)
 
 - `release`分支基于`develop`分支创建。
 - 正式版发布之前（即合并到`master`分支之前），我们需要一个预发布的版本进行测试，就是`release`了。
@@ -322,7 +322,7 @@ git push origin --delete release/1.0.0
 
 #### hotfix分支：
 
-![](D:\Resources\Programming\Git\Learning\Git学习笔记资源\git flow hotfix 分支.png)
+![git-flow-hotfix.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/git-flow-hotfix.png)
 
 - `hotfix`分支基于`master`分支创建。
 - 创建一个热修复分支，命名规则： hotfix-* 或者 hotfix/* 
@@ -513,7 +513,7 @@ git flow hotfix finish 1.0.1
 
 ### 8.2.3 git flow命令合集
 
-![](D:\Resources\Programming\Git\Learning\Git学习笔记资源\git-flow-commands.png)
+![git-flow-commands.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/git-flow-commands.png)
 
 # 九、GitHub Flow——以部署为中心的开发模式
 
