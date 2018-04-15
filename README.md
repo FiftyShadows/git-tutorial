@@ -223,14 +223,14 @@ git commit --amend [--no-edit]
 - 从远端拉取最新代码，并合并到分支中
 
 ```shell
-# 取回origin主机的master分支，与本地的master分支合并
-git pull origin master:master
+# 取回origin主机的next分支，与本地的master分支合并
+git pull origin next:master
 ```
 
 - 如果远程分支是与当前分支合并，则冒号后面的部分可以省略
 
 ```shell
-git pull origin master
+git pull origin next
 ```
 
 - `pull`的含义是先拉取更新，再与本地分支进行合并，是一个自动的过程，也可以手动实现
@@ -239,14 +239,38 @@ git pull origin master
 # 拉取更新
 git fetch origin
 # 合并更新
-git merge origin/master
+git merge origin/next
+```
+
+- 如果本地分支与远程分支建立了一种追踪关系，比如`git clone`时，所有本地分支默认与远程主机的同名分支建立了追踪关系，也就是说，本地的`master`分支自动`追踪`远程分支`origin/master`分支。此时，可以省略远程分支名
+
+```shell
+git pull origin
 ```
 
 
 
+## 4.3 查看状态
 
+### 4.3.1 `git status`
 
+- 查看当前分支的状态
 
+```shell
+git status
+```
+
+- 以简单形式，查看当前分支的状态
+
+```shel
+git status -s
+```
+
+- 一个简单的查看忽略文件的方法
+
+```shell
+git status --ignored
+```
 
 
 
