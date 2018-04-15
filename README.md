@@ -270,7 +270,7 @@ git checkout develop
 # 合并新开发的功能分支
 git merge --no-ff feature/x
 # 提交远程仓库
-git push
+git push origin develop
 
 # 删除新开发的功能分支
 git branch -d feature/x
@@ -300,9 +300,6 @@ git checkout master
 git merge --no-ff release/1.0.0
 # 提交远程仓库
 git push
-# 对合并生成的新节点，做一个标签
-git tag -a v1.0.0 master
-git push --tags
 
 # 更新develop分支
 git pull origin develop
@@ -315,6 +312,10 @@ git push
 git branch -d release/1.0.0
 # [可选项]如果预发布分支提交到远程仓库，可以如下删除
 git push origin --delete release/1.0.0
+
+# 对合并生成的新节点，做一个标签
+git tag -a v1.0.0 master
+git push --tags
 ```
 
 #### hotfix分支：
@@ -337,9 +338,6 @@ git checkout master
 git merge --no-ff hotfix/1.0.1
 # 提交远程仓库
 git push
-# 对合并生成的新节点，做一个标签
-git tag -a v1.0.1 master
-git push --tags
 
 # 更新develop分支
 git pull origin develop
@@ -352,6 +350,10 @@ git push
 git branch -d hotfix/1.0.1
 # [可选项]如果热修复分支提交到远程仓库，可以如下删除
 git push origin --delete hotfix/1.0.1
+
+# 对合并生成的新节点，做一个标签
+git tag -a v1.0.1 master
+git push --tags
 ```
 
 
