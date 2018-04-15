@@ -227,6 +227,14 @@ git commit --amend [--no-edit]
 git pull origin master:master
 ```
 
+- 如果远程分支是与当前分支合并，则冒号后面的部分可以省略
+
+```shell
+git pull origin master
+```
+
+
+
 
 
 
