@@ -637,19 +637,21 @@ git blame <filename>
 
 Git提供了二分查找的概念，来帮助确定一个有关Bug的版本。
 
-- 启用二分查找
+#### 使用演示：
+
+- 第一步：启用二分查找
 
 ```shell
 git bisect start
 ```
 
-- 标记一个好的版本
+- 第二步：标记一个好的版本
 
 ```shell
 git bisect good <tag|commit id>
 ```
 
-- 标记一个坏的版本
+- 第三步：标记一个坏的版本
 
 ```shell
 # 注意，这里标记Bug版本后，后面会提示还有多少版本需要测试，大概需要多少步骤；并且还会切换到二分位置
@@ -658,10 +660,30 @@ Bisecting: 7 revisions left to test after this (roughly 3 steps)
 [67ec0234ab82b6821efef2d32b1091f6d560cb08] fix conflict
 ```
 
+至此，Git已经自动为我们切换到下一个二分位置，并显示大概需要多少步骤可以定位到错误提交。
+
+- 第四步：执行测试，查看当前自动切换到的二分位置是否有Bug
+
+```shell
+# do some test or check
+```
+
+- 第五步：如果有Bug，标记bad，否则，标记good；继续二分定位
+
+```shell
+# 这里不需要指定<commit id>，只需要第二步和第三步指定一个good位置和一个bad位置即可
+git bisect <good|bad>
+```
+
+- 第六步：重复第四步和第五步的操作，直到找到Bug版本位置
+
+#### 小技巧：
+
 - 如果对版本标记错了，把good写成了bad或者相反，需要重置
 
 ```shell
-git bisect reset <commit id>
+# 如果不带<commit id>，会退出bisect，并切换到git bisect start之前的位置；否则，会退出bisect，并切换到<commit id>指定的位置。
+git bisect reset [<commit id>]
 ```
 
 - 查看`git bisect`标记操作日志
