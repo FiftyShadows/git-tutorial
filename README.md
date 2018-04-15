@@ -2,7 +2,7 @@
 
 git-tutorial
 
-[TOC]
+[toc]
 
 
 
@@ -137,7 +137,7 @@ user.email=liming20110711@163.com
 
    以GitHub为例，创建如图所示：
 
-   ![1](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/new-repository-1.png)
+   ![new-repository-1.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/new-repository-1.png)
 
    获得仓库地址：`git@github.com:Rushing0711/emonnote.git`
 
@@ -157,7 +157,7 @@ user.email=liming20110711@163.com
 
    以GitHub为例，创建如图所示：
 
-   ![2](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/new-repository-2.png)
+   ![new-repository-2.png](https://github.com/emoncoding/git-tutorial/blob/develop/src/main/resources/static/images/new-repository-2.png)
 
    获得仓库地址：`git@github.com:Rushing0711/emonnote.git`
 
