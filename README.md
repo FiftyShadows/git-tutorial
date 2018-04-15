@@ -679,7 +679,7 @@ git bisect <good|bad>
 
 #### 小技巧：
 
-- 如果对版本标记错了，把good写成了bad或者相反，需要重置
+- 如果对版本标记错了，把good写成了bad或者相反，需要重新开始二分定位
 
 ```shell
 # 如果不带<commit id>，会退出bisect，并切换到git bisect start之前的位置；否则，会退出bisect，并切换到<commit id>指定的位置。
