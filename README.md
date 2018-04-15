@@ -236,9 +236,31 @@ git config --list
 
 
 
+## 7.4 日志查看
 
+- 常规的提交日志
 
+```shell
+git log
+```
 
+- 只显示提交信息的第一行
+
+```shell
+git log --pretty=short
+```
+
+- 只显示指定目录、文件的日志
+
+```shell
+git log README.md
+```
+
+- 显示文件的改动
+
+```shell
+git log -p README.md
+```
 
 
 
