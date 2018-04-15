@@ -174,12 +174,62 @@ user.email=liming20110711@163.com
 
 # 四、Git文件管理
 
+## 4.1 添加和提交文件
+
+- 添加指定文件
+
+```shell
+git add <filename>
+```
+
+- 添加指定目录所有文件
+
+```shell
+git add <directory>
+```
+
+- 添加当前目录所有文件
+
+```shell
+git add .
+# 或者
+git add *
+```
+
+- 提交新增文件
+
+```shell
+git add <filename>
+git commit -m "<message>"
+```
+
+- 提交已经存在，但是修改过的文件
+
+```shell
+git commit -am "<message>"
+```
+
+- 修改上一条提交信息
+
+```shell
+# 该命令打开提交信息编辑窗口，你可以修改提交信息；--no-edit标记会修复提交但不会打开提交信息编辑窗口。
+git commit --amend [--no-edit]
+```
+
+
+
+## 4.2 合并更新
+
+
+
+
+
 ## 4.4 文件还原与暂存
 
 对于已经修改的文件，想要放弃当前的修改，还原为之前的状态：
 
 ```shell
-git checkout <file name>
+git checkout <filename>
 ```
 
 而如果不是想放弃当前的修改，只是想暂存起来，去处理一些比较紧急的事情，之后还是需要继续操作，那就需要stash命令：
