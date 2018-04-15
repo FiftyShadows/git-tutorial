@@ -233,7 +233,14 @@ git pull origin master:master
 git pull origin master
 ```
 
+- `pull`的含义是先拉取更新，再与本地分支进行合并，是一个自动的过程，也可以手动实现
 
+```shell
+# 拉取更新
+git fetch origin
+# 合并更新
+git merge origin/master
+```
 
 
 
