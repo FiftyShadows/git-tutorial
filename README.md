@@ -220,6 +220,17 @@ git commit --amend [--no-edit]
 
 ## 4.2 合并更新
 
+- 从远端拉取最新代码，并合并到分支中
+
+```shell
+# 取回origin主机的master分支，与本地的master分支合并
+git pull origin master:master
+```
+
+
+
+
+
 
 
 
