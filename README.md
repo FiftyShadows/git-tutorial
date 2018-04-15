@@ -174,6 +174,14 @@ user.email=liming20110711@163.com
 
 # 四、Git文件管理
 
+## 4.4 文件还原与暂存
+
+对于已经修改的文件，想要放弃当前的修改，还原为之前的状态：
+
+```shell
+git checkout <file name>
+```
+
 
 
 
@@ -236,6 +244,20 @@ git checkout -
 # 合并分支，并保留日志
 git merge --no-ff feature/x
 ```
+
+- 删除分支
+
+```shell
+git branch -d <branchname>
+```
+
+- 删除分支，覆盖Git的安全检查
+
+```shell
+git branch -D <branchname>
+```
+
+
 
 
 
@@ -378,7 +400,50 @@ git diff HEAD
 
 ## 7.6 版本回退
 
+`git reset`是版本回退的基本命令，根据后面参数的不同，回退的形式也不同。
 
+- 已经使用`git add`添加到仓库的文件，想要使得他回退到`git add`之前
+
+```shell
+# HEAD表示为当前的版本
+git reset HEAD <file name>
+```
+
+- 对于每次的log记录，想回退到某一个log记录的时候，并且保留当前所做的修改
+
+```shell
+git reset <commit id>
+```
+
+- 对于每次的log记录，想回退到某一个log记录的时候，并且放弃之后的修改
+
+```
+git reset --hard <commit id>
+```
+
+- 回退到上一个版本
+
+```shell
+git reset --hard HEAD^
+```
+
+- 回退到之前第n个版本
+
+```shell
+# n表示之前第n个版本
+git reset --hard HEAD~n
+```
+
+- 回退后放弃回退
+
+如果在回退以后又想再回到之前的版本，`git reflog`可以查看所有分支的所有操作记录（包括commit和reset的操作），包括一家被删除的commit记录，`git log`则无法查看到已经删除了的commit记录。
+
+```shell
+# 查看之前的<commit id>
+git reflog
+# 放弃回退
+git reset <commit id>
+```
 
 
 
