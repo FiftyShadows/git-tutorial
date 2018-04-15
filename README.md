@@ -2,9 +2,6 @@
 
 git-tutorial
 
-[toc]
-
-
 
 # 一、Git简介
 
