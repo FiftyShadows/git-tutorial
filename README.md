@@ -357,6 +357,12 @@ git branch -r
 git branch -a
 ```
 
+- 查看本地和远程所有的分支，包含详细信息
+
+```shell
+git branch -a -vv
+```
+
 - 图表形式查看分支
 
 ```shell
