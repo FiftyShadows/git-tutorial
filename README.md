@@ -543,34 +543,64 @@ git log
 git log --pretty=short
 ```
 
+### 7.4.1 本地日志查看
+
 - 只显示指定目录、文件的日志
 
 ```shell
 git log README.md
 ```
 
-- 显示文件的改动
+- 显示本地文件的改动
 
 ```shell
 git log -p README.md
 ```
 
-- 查看最后一次提交
+- 查看本地最后一次提交
 
 ```shell
 git log -n 1
 ```
 
-- 查看最近一次提交所有更改过的文件
+- 查看本地最近一次提交所有更改过的文件列表
 
 ```shell
 git log -n 1 --stat
 ```
 
-- 查看最近一次提交所有更改的细节
+- 查看本地最近一次提交所有更改的文件细节
 
 ```shell
 git log -n 1 -p
+```
+
+### 7.4.2 远程日志查看（ `git fetch`之后`git merge`之前）
+
+- 查看远程最后一次提交
+
+```shell
+git log -n 1 [develop] origin/develop
+```
+
+- 查看远程最近一次提交所有更改过的文件列表
+
+```shell
+git log -n 1 --stat [develop|develop..] origin/develop
+```
+
+- 查看远程最近一次提交所有更改的文件细节
+
+```shell
+git log -n 1 -p [develop|develop..]  rigin/develop
+
+```
+
+- 查看远程最近一次提交指定文件的细节
+
+```shell
+# 如果filename在路径下可直接指定，否则可以通过*通配路径
+git log -n 1 -p [develop|develop..]  origin/develop [filename|*filename]
 ```
 
 
