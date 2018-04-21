@@ -543,6 +543,15 @@ git log
 git log --pretty=short
 ```
 
+- 查看某个用户的日志
+
+```shell
+# 如果没有配置 git config --global user.name=XXX，username是unknown
+git log --author=username
+```
+
+
+
 ### 7.4.1 本地日志查看
 
 - 只显示指定目录、文件的日志
@@ -660,13 +669,13 @@ git reset --hard HEAD~n
 
 - 回退后放弃回退
 
-如果在回退以后又想再回到之前的版本，`git reflog`可以查看所有分支的所有操作记录（包括commit和reset的操作），包括一家被删除的commit记录，`git log`则无法查看到已经删除了的commit记录。
+如果在回退以后又想再回到之前的版本，`git reflog`可以查看所有分支的所有操作记录（包括commit和reset的操作），包括已经被删除的commit记录，`git log`则无法查看到已经删除了的commit记录。
 
 ```shell
 # 查看之前的<commit id>
 git reflog
 # 放弃回退
-git reset <commit id>
+git reset --hard <commit id>
 ```
 
 ## 7.7 设置忽略文件
