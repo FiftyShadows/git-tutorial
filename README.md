@@ -756,6 +756,20 @@ git bisect reset [<commit id>]
 git bisect log
 ```
 
+## 7.9 LF与CRLF
+
+问题：
+
+```
+warning: LF will be replaced by CRLF in pom.xml.
+```
+
+解决：
+
+```shell
+git config core.autocrlf false
+```
+
 
 
 # 八、Git Flow——以发布为中心的开发模式
