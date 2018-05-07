@@ -584,8 +584,6 @@ git log -n 1 --stat
 git log -n 1 --stat <commit id>
 ```
 
-
-
 - 查看本地最近一次提交所有更改的文件细节
 
 ```shell
@@ -617,8 +615,7 @@ git log -n 1 --stat [develop|develop..] origin/develop
 - 查看远程最近一次提交所有更改的文件细节
 
 ```shell
-git log -n 1 -p [develop|develop..]  rigin/develop
-
+git log -n 1 -p [develop|develop..]  origin/develop
 ```
 
 - 查看远程最近一次提交指定文件的细节
