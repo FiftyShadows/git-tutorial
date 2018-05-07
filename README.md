@@ -578,11 +578,27 @@ git log -n 1
 git log -n 1 --stat
 ```
 
+- 查看本地某次提交所有更改过的文件列表
+
+```shell
+git log -n 1 --stat <commit id>
+```
+
+
+
 - 查看本地最近一次提交所有更改的文件细节
 
 ```shell
 git log -n 1 -p
 ```
+
+- 查看本地某次提交所有更改的文件细节
+
+```shell
+git log -n 1 -p <commit id>
+```
+
+
 
 ### 7.4.2 远程日志查看（ `git fetch`之后`git merge`之前）
 
