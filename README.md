@@ -429,7 +429,11 @@ git push origin --delete develop
 git rebase <branchname>
 ```
 
+- 更新远程分支列表
 
+```bash
+git remote update origin --prune
+```
 
 
 
@@ -548,6 +552,20 @@ git log --pretty=short
 ```shell
 # 如果没有配置 git config --global user.name=XXX，username是unknown
 git log --author=username
+```
+
+- 查看某个文件的日志
+
+```bash
+# 其中 *file* 中的 * 是通配符的意思
+git log *file*
+```
+
+- 查看某一次提交的日志
+
+```bash
+# --stat查看列表，-p查看内容
+git log <commit id> -n 1 [--stat|-p]
 ```
 
 
