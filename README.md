@@ -429,9 +429,29 @@ git push origin --delete develop
 git rebase <branchname>
 ```
 
+- 查看两个分支的差异，develop有但master没有的
 
+```bash
+git log develop ^master
+```
 
+- 查看两个分支的差异，master有但develop没有的
 
+```bash
+git log master ^develop
+```
+
+- 查看两个分支的差异，列出develop比master多提交的内容
+
+```bash
+git log master..develop
+```
+
+- 查看两个分支的差异，不知道谁提交多，谁提交少，只是想知道差别
+
+```bash
+git log --left-right master...develop
+```
 
 
 
