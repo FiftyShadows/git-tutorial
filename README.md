@@ -429,11 +429,7 @@ git push origin --delete develop
 git rebase <branchname>
 ```
 
-- 更新远程分支列表
 
-```bash
-git remote update origin --prune
-```
 
 
 
@@ -547,100 +543,34 @@ git log
 git log --pretty=short
 ```
 
-- 查看某个用户的日志
-
-```shell
-# 如果没有配置 git config --global user.name=XXX，username是unknown
-git log --author=username
-```
-
-- 查看某个文件的日志
-
-```bash
-# 其中 *file* 中的 * 是通配符的意思
-git log *file*
-```
-
-- 查看某一次提交的日志
-
-```bash
-# --stat查看列表，-p查看内容
-git log <commit id> -n 1 [--stat|-p]
-```
-
-
-
-### 7.4.1 本地日志查看
-
 - 只显示指定目录、文件的日志
 
 ```shell
 git log README.md
 ```
 
-- 显示本地文件的改动
+- 显示文件的改动
 
 ```shell
 git log -p README.md
 ```
 
-- 查看本地最后一次提交
+- 查看最后一次提交
 
 ```shell
 git log -n 1
 ```
 
-- 查看本地最近一次提交所有更改过的文件列表
+- 查看最近一次提交所有更改过的文件
 
 ```shell
 git log -n 1 --stat
 ```
 
-- 查看本地某次提交所有更改过的文件列表
-
-```shell
-git log -n 1 --stat <commit id>
-```
-
-- 查看本地最近一次提交所有更改的文件细节
+- 查看最近一次提交所有更改的细节
 
 ```shell
 git log -n 1 -p
-```
-
-- 查看本地某次提交所有更改的文件细节
-
-```shell
-git log -n 1 -p <commit id>
-```
-
-
-
-### 7.4.2 远程日志查看（ `git fetch`之后`git merge`之前）
-
-- 查看远程最后一次提交
-
-```shell
-git log -n 1 [develop] origin/develop
-```
-
-- 查看远程最近一次提交所有更改过的文件列表
-
-```shell
-git log -n 1 --stat [develop|develop..] origin/develop
-```
-
-- 查看远程最近一次提交所有更改的文件细节
-
-```shell
-git log -n 1 -p [develop|develop..]  origin/develop
-```
-
-- 查看远程最近一次提交指定文件的细节
-
-```shell
-# 如果filename在路径下可直接指定，否则可以通过*通配路径
-git log -n 1 -p [develop|develop..]  origin/develop [filename|*filename]
 ```
 
 
@@ -712,13 +642,13 @@ git reset --hard HEAD~n
 
 - 回退后放弃回退
 
-如果在回退以后又想再回到之前的版本，`git reflog`可以查看所有分支的所有操作记录（包括commit和reset的操作），包括已经被删除的commit记录，`git log`则无法查看到已经删除了的commit记录。
+如果在回退以后又想再回到之前的版本，`git reflog`可以查看所有分支的所有操作记录（包括commit和reset的操作），包括一家被删除的commit记录，`git log`则无法查看到已经删除了的commit记录。
 
 ```shell
 # 查看之前的<commit id>
 git reflog
 # 放弃回退
-git reset --hard <commit id>
+git reset <commit id>
 ```
 
 ## 7.7 设置忽略文件
@@ -797,20 +727,6 @@ git bisect reset [<commit id>]
 
 ```shell
 git bisect log
-```
-
-## 7.9 LF与CRLF
-
-问题：
-
-```
-warning: LF will be replaced by CRLF in pom.xml.
-```
-
-解决：
-
-```shell
-git config core.autocrlf false
 ```
 
 
