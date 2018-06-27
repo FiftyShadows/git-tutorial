@@ -596,6 +596,12 @@ git diff HEAD
 
 `git reset`是版本回退的基本命令，根据后面参数的不同，回退的形式也不同。
 
+- 尚未使用`git add`添加到仓库的文件，想要使得他回退到编辑之前
+
+```bash
+git checkout -- <file name>
+```
+
 - 已经使用`git add`添加到仓库的文件，想要使得他回退到`git add`之前
 
 ```shell
@@ -609,10 +615,16 @@ git reset HEAD <file name>
 git reset <commit id>
 ```
 
-- 对于每次的log记录，想回退到某一个log记录的时候，并且放弃之后的修改
+- 对于已经`git commit`的提交，对于每次的log记录，想回退到某一个log记录的时候，并且**放弃**之后的修改
 
 ```
 git reset --hard <commit id>
+```
+
+- 对于已经`git commit`的提交，对于每次的log记录，想要回退到某一个log记录的时候，并且**保留**之后的修改
+
+```bash
+git reset --soft <commit id>
 ```
 
 - 回退到上一个版本
